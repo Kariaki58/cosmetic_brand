@@ -16,24 +16,26 @@ import BestSellers from "./components/BestSellers";
 import NewsLetterFooter from "./components/NewsLetterFooter";
 import Brands from './components/Brands';
 import FromBlog from "./components/FromBlog";
+import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
+import Ads from "./components/Ads";
+
 
 const Page = () => {
-  // Define state to track the active slide index
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Define motion variants for animation
   const textVariants = {
-    hidden: { opacity: 0, y: 20 }, // Initial state for the animation
-    visible: { opacity: 1, y: 0 },  // Final state for the animation
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
-  // Handle slide change
   const handleSlideChange = (index) => {
     setActiveIndex(index);
   };
 
   return (
     <div>
+      <Ads />
       <Nav />
       <header className="container mx-auto px-3">
         <Carousel
@@ -45,7 +47,7 @@ const Page = () => {
           interval={3000}
           swipeable
           emulateTouch
-          onChange={handleSlideChange} // Handle slide change
+          onChange={handleSlideChange}
         >
           <div className="relative">
             <Image
@@ -58,7 +60,7 @@ const Page = () => {
             <motion.div
               className="absolute top-52 right-10 w-96 text-left"
               initial="hidden"
-              animate={activeIndex === 0 ? "visible" : "hidden"} // Control animation based on active index
+              animate={activeIndex === 0 ? "visible" : "hidden"}
               variants={textVariants}
               transition={{ duration: 0.5 }}
             >
@@ -89,7 +91,7 @@ const Page = () => {
             <motion.div
               className="absolute top-52 left-10 w-96 text-left"
               initial="hidden"
-              animate={activeIndex === 1 ? "visible" : "hidden"} // Control animation based on active index
+              animate={activeIndex === 1 ? "visible" : "hidden"}
               variants={textVariants}
               transition={{ duration: 0.5 }}
             >
@@ -112,13 +114,10 @@ const Page = () => {
         </Carousel>
       </header>
       
-      {/* Section for product images */} 
       <section className="container mx-auto px-3">
         <div className="flex gap-10">
           
-          {/* Image 1 with hover scale effect */}
           <div className="relative group cursor-pointer overflow-hidden rounded-xl">
-            {/* Apply the hover effect on the outer div */}
             <div className="transition-transform duration-500 transform group-hover:scale-110">
               <Image
                 src={brand1}
@@ -139,7 +138,6 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Image 2 with hover scale effect */}
           <div className="relative group cursor-pointer overflow-hidden rounded-xl">
             <div className="transition-transform duration-500 transform group-hover:scale-110">
               <Image
@@ -167,6 +165,8 @@ const Page = () => {
       <NewsLetterFooter />
       <Brands />
       <FromBlog />
+      <Testimonials />
+      <Footer />
     </div>
   );
 };

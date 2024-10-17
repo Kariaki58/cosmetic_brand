@@ -1,6 +1,6 @@
 const NewsLetterFooter = () => {
   return (
-    <section className='container mx-auto px-3 py-10 bg-gradient-to-r from-pink-500 to-pink-300 rounded-lg'>
+    <section className='container mx-auto px-3 py-10 bg-gradient-to-r from-pink-100 to-pink-300 rounded-lg'>
       <h2 className='text-3xl font-bold text-black text-center mb-4'>
         Sign up now & get 10% off
       </h2>
