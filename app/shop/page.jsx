@@ -92,8 +92,8 @@ const ShopPage = () => {
           <p>Shop</p>
         </div>
       </header>
-
-      <main className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* container mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-10 */}
+      <main className="container mx-auto p-6 grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-10">
         {/* Sidebar */}
         <aside className="md:col-span-1">
           <h2 className="text-lg font-bold border-b pb-4 mb-6">Product Categories</h2>
@@ -140,9 +140,8 @@ const ShopPage = () => {
             </div>
           </section>
         </aside>
-
         {/* Main content */}
-        <section className="md:col-span-2">
+        <section className="">
           <div className="flex justify-between items-center border-b pb-2 mb-6">
             <h2 className="text-md text-gray-500">
               Showing {((currentPage - 1) * PRODUCTS_PER_PAGE) + 1} -{" "}

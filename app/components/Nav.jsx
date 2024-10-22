@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-// import { useRouter } from "next/router";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { GoPerson } from "react-icons/go";
 import { IoSearchOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import Cart from "./Cart"; // Import the Cart component
 
 const Nav = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false); // State for cart
   const [isActive, setIsActive] = useState("home");
 
   const toggleSearch = () => {
@@ -22,9 +23,10 @@ const Nav = () => {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-  console.log(isActive);
 
-  // Function to detect active route
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen); // Toggle cart visibility
+  };
 
   return (
     <nav className="bg-white">
@@ -113,10 +115,10 @@ const Nav = () => {
         {/* Right Side Icons */}
         <ul className="flex space-x-6 text-gray-600 items-center">
           <li className="text-gray-900 cursor-pointer hover:text-[#FA9090]">
-              <IoSearchOutline size={20} onClick={toggleSearch}/>
+            <IoSearchOutline size={20} onClick={toggleSearch} />
           </li>
           <li className="text-gray-900 cursor-pointer hover:text-[#FA9090]">
-            <Link href="/account">
+            <Link href="/auth/login">
               <GoPerson size={20} />
             </Link>
           </li>
@@ -127,7 +129,7 @@ const Nav = () => {
             <span className="p-1 rounded-full bg-[#FA9090] text-white text-xs absolute bottom-3 left-3">0</span>
           </li>
           <li className="text-gray-900 cursor-pointer hover:text-[#FA9090] relative">
-            <Link href="/cart">
+            <Link href="#" onClick={toggleCart}>
               <MdOutlineAddShoppingCart size={20} />
             </Link>
             <span className="p-1 rounded-full bg-[#FA9090] text-white text-xs absolute bottom-3 left-3">0</span>
@@ -145,6 +147,9 @@ const Nav = () => {
           />
         </div>
       )}
+
+      {/* Cart Component */}
+      <Cart isCartOpen={isCartOpen} toggleCart={toggleCart} />
     </nav>
   );
 };

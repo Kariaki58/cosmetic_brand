@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IoStarSharp } from "react-icons/io5";
 import skincare1 from '../assets/skincare1.jpg';
 
+
 const BestSellers = () => {
   return (
     <section className="container mx-auto px-3 mb-10 flex gap-10">
